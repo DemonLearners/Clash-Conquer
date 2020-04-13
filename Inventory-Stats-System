@@ -1,0 +1,139 @@
+/*NOTE:DO NOT MIND INVENTORY FOR NOW */
+
+
+
+//inventory/player stats system - armor/weapon/medkits
+#include <iostream>
+#include <cmath>
+#include <vector>
+#include <random>
+
+using namespace std;
+
+class Character 
+    public:
+
+        int defense;
+        bool dead;
+        int attack;
+        int health;
+
+        
+
+
+        int health()
+        {
+            /*health+=medkit(10);
+            myInventory.subtract_medkit(10);*/
+            cout<<"Your current health is: "<<health<<endl;
+        }
+
+        int attack()
+        {
+            ///////
+        }
+
+        void takeDamage(int damage)
+        {
+            health -= damage;
+            if ((health==0) || (health<0))
+            {
+                Death()
+            }
+            else
+            {
+            cout<<"You've taken some damage!"<<"\t"<<endl;
+            cout<<"Your current health is: "<<health<<"\t"<<endl;
+            
+        }
+
+        void Death()
+        {
+        dead=true;
+        }
+
+
+        void TakeMedKit()
+        {
+        health+=medkit(10);
+        myInventory.subtract_medkit(10);
+    
+        }
+
+
+        void DisplayPlayerStats()
+        {  
+        cout<<"Your current health is: "<<health<<endl;
+        }
+
+        
+
+};
+
+
+class Inventory
+{
+    public:
+    vector<string> armor;
+    vector<string> weapon;
+    vector<int> medkit;
+
+    void add_armor()
+    {
+        armor=armor.push_back(input())
+
+    }
+
+    void subtract_armor()
+    {
+        armor=armor.pop_back(input())
+    }
+
+    void add_weapon
+    {
+        weapon=weapon.push_back(input())
+        
+    }
+
+    void subtract_weapon
+    {
+        weapon=weapon.pop_back(input())
+    }
+
+    subtract_medkit(int medkit)
+    {
+        medkit=medkit-10;
+        cout<< "Your current medkit is: "<<medkit<<endl;
+    }
+
+    add_medkit(int medkit)
+    {
+        medkit=medkit+10;
+        cout<< "Your current medkit is: "<<medkit<<endl;
+
+    }
+};
+
+
+int main() ///PLAYER TEST 
+{
+Inventory myInventory;
+
+}
+
+    
+
+    
+
+
+
+//need to instantiate Monster object at main??
+//int main()
+//Character Monster;
+//Monster.attackStrength=
+//Monster.health=
+
+
+//Inventory myInventory;
+//myInventory.medkit;
+
