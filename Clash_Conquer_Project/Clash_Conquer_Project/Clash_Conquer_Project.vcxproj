@@ -150,10 +150,12 @@
     <ClCompile Include="Area.cpp" />
     <ClCompile Include="BattleSystem.cpp" />
     <ClCompile Include="Game.cpp" />
+    <ClCompile Include="Hangman.cpp" />
     <ClCompile Include="Player.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Area.h" />
+    <ClInclude Include="Hangman.h" />
     <ClInclude Include="MonsterManager.h" />
     <ClInclude Include="Player.h" />
   </ItemGroup>
