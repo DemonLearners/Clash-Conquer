@@ -20,7 +20,9 @@ private:
 public:
 	//Area(string name, bool lock, Puzzle* puzzle, MonsterManger* monsterM, int puzzleNum, Player* player, vector<Area*>  neighbors);
 	bool MonsterExist();// -check if any monsters exist
+	bool IsLocked();
 	Area* EnterArea();// -The control center for the area
+
 	
 
 };

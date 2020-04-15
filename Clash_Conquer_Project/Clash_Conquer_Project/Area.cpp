@@ -1,4 +1,5 @@
 #include "Area.h"
+#include <string>
 //Area(string name, bool lock, Puzzle* puzzle, MonsterManger* monsterM, int puzzleNum, Player* player, vector<Area*>  neighbors)
 bool Area::MonsterExist()
 {
@@ -7,7 +8,10 @@ bool Area::MonsterExist()
 	//Else
 	//Return true;
 }
-
+bool Area::IsLocked()
+{
+	return locked;
+}
 Area* Area::EnterArea()
 {
 	//If MonsterExist()
@@ -19,41 +23,43 @@ Area* Area::EnterArea()
 	//Return pPrevious;
 	//End if
 	//Endif
-	//Int choice = 0
-	//Bool correctValue = false
-	//Do
-	//DisplayChoices();
-	//Cin >> choice;
-	//If choice < 0 && choice > = neighbors.size()
-	//Cout  “sorry that choice does not exist”
-	//correctValue = false;
-	//else
-	//correctValue = true;
-	//End if
-	//While correctValue == false
-	//Return moveToNeighbor(choice);
+	int choice = 0;
+	bool correctValue = false;
+	do
+	{
+		DisplayAreaChoices();
+		cin >> choice;
+		if (choice < 0 && choice >= neighbors.size())
+		{
+			cout << "sorry that choice does not exist\n";
+			correctValue = false;
+		}
+		else
+			correctValue = true;
+	} while (correctValue == false);
+	return MoveToNeighbor(choice);
 
 }
 
 Area* Area::MoveToNeighbor(int choice)
 {
-	//if (neighbors[choice].IsLocked())
-	//If ActivatePuzzleMode()
-	//Return neighbors[choice];
-	//Else
-	return this;
-	//Endif
-	//Endif
-	//Return neighbors[choice]
+	if (neighbors[choice]->IsLocked())
+	{
+		if (ActivatePuzzleMode())
+			return neighbors[choice];
+		else
+			return this;
+	}
+	return neighbors[choice];
 }
 
 void Area::DisplayAreaChoices()
 {
-	//Cout message of the place your in with the choices you have
-	//For int i = 0 to neighbors.size step 1
-	//Cout i : neighbor name
-	//endfor
-
+	cout << "Where do you choose to go\n";
+	for (int i = 0; i < neighbors.size(); i++)
+	{
+		cout << "choice " << i<< ": " +  neighbors[i]->name;
+	}
 }
 
 char Area::ActivateBattleMode()
