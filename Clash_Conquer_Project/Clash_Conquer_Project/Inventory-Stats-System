@@ -1,112 +1,78 @@
-/*NOTE:DO NOT MIND INVENTORY FOR NOW */
 
-
-
-//inventory/player stats system - armor/weapon/medkits
+//METHODS
 #include <iostream>
 #include <cmath>
 #include <vector>
 #include <random>
-
-using namespace std;
-
-class Character 
-    public:
-
-        int defense;
-        bool dead;
-        int attack;
-        int health;
-
-        
+#include "Character.h"
 
 
-        int health()
-        {
-            /*health+=medkit(10);
-            myInventory.subtract_medkit(10);*/
-            cout<<"Your current health is: "<<health<<endl;
-        }
-
-        int attack()
-        {
-            ///////
-        }
-
-        void takeDamage(int damage)
-        {
-            health -= damage;
-            if ((health==0) || (health<0))
-            {
-                Death()
-            }
-            else
-            {
-            cout<<"You've taken some damage!"<<"\t"<<endl;
-            cout<<"Your current health is: "<<health<<"\t"<<endl;
-            
-        }
-
-        void Death()
-        {
-        dead=true;
-        }
+void Character:: player_health()
+{
+    cout<<"Your current health is: "<<health<<endl;
+}
 
 
-        void TakeMedKit()
-        {
-        health+=medkit(10);
-        myInventory.subtract_medkit(10);
-    
-        }
+void Character:: player_attack()
+{
+    return attack;//////////////
+}
 
 
-        void DisplayPlayerStats()
-        {  
-        cout<<"Your current health is: "<<health<<endl;
-        }
 
-        
+void Character:: takeDamage(int damage)
+{
+    health -= damage;
+    if ((health==0) || (health<0))
+    {
+        Death();
+    }
+    else
+    {
+    cout<<"You've taken some damage!"<<"\t"<<endl;
+    cout<<"Your current health is: "<<health<<"\t"<<endl;
+    }
 
-};
+}
 
 
+void Character::Death()
+{
+    dead=true;
+}
+
+
+void Character::TakeMedKit()
+{
+    health+=medkit(10);
+    //myInventory.subtract_medkit(10);////
+}
+
+
+void Character::DisplayPlayerStats()
+{  
+    cout<<"Your current health is: "<<health<<endl;
+}
+
+
+
+/*-------------------------------------------------------------------------------*/
 class Inventory
 {
     public:
-    vector<string> armor;
-    vector<string> weapon;
+    //vector<string> arsenal(1);
     vector<int> medkit;
+    string weapon;
+    void print_weapon();
+    
 
-    void add_armor()
-    {
-        armor=armor.push_back(input())
-
-    }
-
-    void subtract_armor()
-    {
-        armor=armor.pop_back(input())
-    }
-
-    void add_weapon
-    {
-        weapon=weapon.push_back(input())
-        
-    }
-
-    void subtract_weapon
-    {
-        weapon=weapon.pop_back(input())
-    }
-
-    subtract_medkit(int medkit)
+    subtract_medkit()
     {
         medkit=medkit-10;
         cout<< "Your current medkit is: "<<medkit<<endl;
     }
 
-    add_medkit(int medkit)
+    add_medkit()
     {
         medkit=medkit+10;
         cout<< "Your current medkit is: "<<medkit<<endl;
@@ -115,11 +81,19 @@ class Inventory
 };
 
 
+
+
 int main() ///PLAYER TEST 
 {
 Inventory myInventory;
-
-}
+    myInventory.weapon="sword";
+    myInventory.print_weapon();
+    return 0;
+Character myPlayer;
+    myPlayer.health=100;
+    myPlayer.player_health();
+return 0;
+}    
 
     
 
