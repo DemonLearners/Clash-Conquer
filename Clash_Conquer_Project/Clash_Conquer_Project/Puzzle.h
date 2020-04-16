@@ -12,8 +12,8 @@ private:
 	Hangman h;
 	WordScrambleGame w;
 public:
-	void Hangman(void);
-	void WordScrambleGame(void);
+	Puzzle();
+	bool PlayPuzzle(int choice);
 };
 
 #endif

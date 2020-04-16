@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include "Area.h"
+#include "Puzzle.h"
 using namespace std;
 
 
@@ -10,7 +11,8 @@ int main()
 {
 	bool won = false;
 	//Player player = new player;// could make this static
-	//Puzzle puzzleControl = new puzzle;// could make this static 
+	Puzzle puzzleControl;// could make this static 
+	puzzleControl.PlayPuzzle(1);
 	//MonsterManager monsterManagers[4] = { 4 new MonsterManager }
 	//Area  areas[6] = { 6 new Area };
 	//Area* pTownArea = areas[0];

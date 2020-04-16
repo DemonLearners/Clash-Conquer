@@ -10,7 +10,7 @@ void WordScrambleGame::Initialize(){
     point = 0;
 }
 
-void WordScrambleGame::Play(){
+bool WordScrambleGame::Play(){
     Initialize();
     for(int i=0; i<guessCount; i++){
         cout<<nword[i]<<endl;
@@ -30,6 +30,15 @@ void WordScrambleGame::Play(){
 
     }
     cout<<"Your Score is:"<<point<<endl;
-if(point<3) cout<<"Congrats, you won";
-else cout<<"You lost");
+    if (point < 3) {
+        cout << "Congrats, you won";
+        return true;
+    }
+   
+    else
+    {
+        cout << "You lost";
+        return false;
+    }
+
 }

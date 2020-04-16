@@ -6,10 +6,17 @@
 
 using namespace std;
 
-void Puzzle::Hangman(void){
-	h.PlayGame();
+Puzzle::Puzzle()
+{
+
+}
+bool Puzzle::PlayPuzzle(int choice){
+	if (choice == 1)
+		return h.PlayGame();
+	else if (choice == 2)
+		return w.Play();
+	else
+		return false;
 }
 
-void Puzzle::WordScrambleGame(void){
-	w.Play();
-}
+

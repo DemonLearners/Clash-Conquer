@@ -1,4 +1,5 @@
 #include "Hangman.h"
+#include <array>
 bool Hangman::checkGuess(string word, char guess, bool matched[])
 {
 
@@ -52,11 +53,11 @@ void Hangman::displayGameState(string word, bool matched[], int guesses)
 
 int Hangman::PlayGame() {
 
-    int guesses = 0;
+   int guesses = 0;
 
-    string word = "disambiguation";
-
-    bool matched[word.size()];
+   string word = "disambiguation";
+   const int wordSize =14;
+    bool matched[wordSize]{ false };
     char guess;
     
     //initialize matched array

@@ -14,7 +14,7 @@ private:
 	int point;
 	void Initialize();
 public:
-	void Play();
+	bool Play();
 };
 
 #endif
