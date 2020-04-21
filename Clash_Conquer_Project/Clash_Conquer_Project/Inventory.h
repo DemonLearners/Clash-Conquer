@@ -36,6 +36,6 @@ class Inventory
     {
         return armor;
     }
-}
+};
 
 
