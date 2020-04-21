@@ -1,31 +1,41 @@
 //INVENTORY CLASS
-#ifndef INVENTORY_H
-#define INVENTORY_h
+#include "Player.h"
 
 #include<iostream>
-#include<vector>
-
 using namespace std;
 
 class Inventory
 {
-    public:
-    //vector<string> arsenal(1);
-    vector<int>medkit;
+    private:
     string weapon;
-    void print_weapon();
+    string armor;
+    int medkit=5;
 
-    subtract_medkit()
+    public:
+
+    int subtract_medkit()
     {
-        medkit-=10;
+        medkit-=1;
+        cout<<"Your current medkit has : "<<medkit<<endl;
+        return 25; //medkit health value that returns to the user
+    }
+
+    void add_medkit()
+    {
+        medkit+=1;
         cout<<"Your current medkit has : "<<medkit<<endl;
     }
 
-    add_medkit()
+
+    string Weapon()
     {
-        medkit+=10;
-        cout<<"Your current medkit has : "<<medkit<<endl;
+        return weapon;
+    }
+
+    string Armor()
+    {
+        return armor;
     }
 }
 
-#endif
+
