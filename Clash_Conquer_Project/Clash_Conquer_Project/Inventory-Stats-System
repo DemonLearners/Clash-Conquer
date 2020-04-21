@@ -36,10 +36,6 @@ void Character:: takeDamage(int damage)
 }
 
 
-void Character::Death()
-{
-    dead=true;
-}
 
 
 void Character::TakeMedKit()

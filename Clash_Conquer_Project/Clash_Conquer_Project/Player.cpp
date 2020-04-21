@@ -2,8 +2,6 @@
 
 int Player::Health()
 {
-    /*health+=medkit(10);
-    myInventory.subtract_medkit(10);*/
     cout << "Your current health is: " << health << endl;
     return health;
 }
@@ -30,19 +28,47 @@ void Player::TakeDamage(int damage)
 
     void Player::Death()
     {
-        dead = true;
+        cout<<"Oh no you killed me!"<<endl;
+        dead=true;
     }
 
 
     void Player::TakeMedKit()
     {
-        //health += medkit(10);
-       // myInventory.subtract_medkit(10);
+      
+       myInventor.add_medkit();
 
     }
+    void  Player::UseMedKit()
+    {
 
+        health += myInventor.subtract_medkit();
+        if (health >100)
+        {
+            health=100;
+        }
+
+    }
 
     void Player::DisplayPlayerStats()
     {
         cout << "Your current health is: " << health << endl;
+        cout << "Your current weapon is: " << myInventor.Weapon() << endl;
+        cout << "Your current armor is: " << myInventor.Armor() << endl;
     }
+
+
+bool Player:: Alive()
+{
+    if (!dead)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+
+
