@@ -51,7 +51,7 @@ void Hangman::displayGameState(string word, bool matched[], int guesses)
 
 }
 
-int Hangman::PlayGame() {
+bool Hangman::PlayGame() {
 
    int guesses = 0;
 
@@ -63,11 +63,14 @@ int Hangman::PlayGame() {
     //initialize matched array
 
     for (int i = 0; i < word.length(); i++)
-
+        {
         matched[i] = false;
-
+        }
     //Game loop
 
+    int gameStatus = 0
+    
+    
     do
 
     {
@@ -85,11 +88,25 @@ int Hangman::PlayGame() {
         if (!checkGuess(word, guess, matched))
 
             guesses++;
+        if (GUESS_LIMIT == guess)
+        gameStatus = 2
+        bool flag = false;
+        for (int i = 0; i < matched.size(); i++)
+        {
+            if (matched[i]==false)
+            {
+                flag == true;
+                break;
+            }
+        }
+        if (!flag)
+        gameStatus = 1;
 
-    } while (guesses < GUESS_LIMIT);
-
-    cout << "You lose." << endl;
-
+    } while (gameStatus < 1);
+        if (gameStatus == 2)
+        cout << "You lose." << endl;
+        else
+        cout << "You won." << endl;
     return 0;
 
 }
