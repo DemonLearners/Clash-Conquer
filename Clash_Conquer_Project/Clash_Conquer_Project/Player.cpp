@@ -36,13 +36,13 @@ void Player::TakeDamage(int damage)
     void Player::TakeMedKit()
     {
       
-       myInventory.add_medkit();
+       myInventor.add_medkit();
 
     }
     void  Player::UseMedKit()
     {
 
-        health += myInventory.subtract_medkit();
+        health += myInventor.subtract_medkit();
         if (health >100)
         {
             health=100;
@@ -53,8 +53,8 @@ void Player::TakeDamage(int damage)
     void Player::DisplayPlayerStats()
     {
         cout << "Your current health is: " << health << endl;
-        cout << "Your current weapon is: " << myInventory.Weapon() << endl;
-        cout << "Your current armor is: " << myInventory.Armor() << endl;
+        cout << "Your current weapon is: " << myInventor.Weapon() << endl;
+        cout << "Your current armor is: " << myInventor.Armor() << endl;
     }
 
 

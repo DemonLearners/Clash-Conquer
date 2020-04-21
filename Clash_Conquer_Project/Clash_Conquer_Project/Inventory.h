@@ -1,5 +1,4 @@
 //INVENTORY CLASS
-#include "Player.h"
 
 #include<iostream>
 using namespace std;
@@ -7,35 +6,20 @@ using namespace std;
 class Inventory
 {
     private:
-    string weapon;
-    string armor;
+    string weapon ="";
+    string armor="";
     int medkit=5;
 
     public:
 
-    int subtract_medkit()
-    {
-        medkit-=1;
-        cout<<"Your current medkit has : "<<medkit<<endl;
-        return 25; //medkit health value that returns to the user
-    }
+    int subtract_medkit();
 
-    void add_medkit()
-    {
-        medkit+=1;
-        cout<<"Your current medkit has : "<<medkit<<endl;
-    }
+    void add_medkit();
 
 
-    string Weapon()
-    {
-        return weapon;
-    }
+    string Weapon();
 
-    string Armor()
-    {
-        return armor;
-    }
+    string Armor();
 };
 
 

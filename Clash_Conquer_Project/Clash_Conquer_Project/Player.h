@@ -11,7 +11,7 @@ public:
     bool dead = false;
     int attack= 0;
     int health =0; 
-    Inventory myInventory;
+    Inventory myInventor;
     int Health();
     int Attack();
     void TakeDamage(int damage);
