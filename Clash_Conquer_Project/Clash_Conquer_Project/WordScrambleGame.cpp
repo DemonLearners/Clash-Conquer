@@ -30,7 +30,7 @@ bool WordScrambleGame::Play(){
 
     }
     cout<<"Your Score is:"<<point<<endl;
-    if (point < 3) {
+    if (point == 3) {
         cout << "Congrats, you won";
         return true;
     }
@@ -42,3 +42,4 @@ bool WordScrambleGame::Play(){
     }
 
 }
+
