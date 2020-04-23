@@ -2,7 +2,6 @@
 
 int Player::Health()
 {
-    cout << "Your current health is: " << health << endl;
     return health;
 }
 

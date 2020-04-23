@@ -6,12 +6,12 @@ using namespace std;
 class Inventory
 {
     private:
-    string weapon ="";
-    string armor="";
+    string weapon ="A pencil of justice";
+    string armor="T-shirt";
     int medkit=5;
 
     public:
-
+    int MedKitAmount();
     int subtract_medkit();
 
     void add_medkit();

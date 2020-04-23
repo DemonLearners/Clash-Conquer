@@ -23,3 +23,7 @@ string Inventory::Armor()
 {
     return armor;
 }
+int Inventory::MedKitAmount()
+{
+    return medkit;
+}

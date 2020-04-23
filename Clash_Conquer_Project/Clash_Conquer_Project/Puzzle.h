@@ -1,11 +1,5 @@
-#ifndef PUZZLE_H
-#define PUZZLE_h
-#include <iostream>
-#include <cctype> // used for converting character to lowercase
 #include "WordScrambleGame.h"
 #include "Hangman.h"
-
-using namespace std;
 
 class Puzzle{
 private:
@@ -16,4 +10,3 @@ public:
 	bool PlayPuzzle(int choice);
 };
 
-#endif

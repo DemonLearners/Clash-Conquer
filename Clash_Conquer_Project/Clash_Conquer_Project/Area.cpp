@@ -1,12 +1,30 @@
 #include "Area.h"
-#include <string>
-//Area(string name, bool lock, Puzzle* puzzle, MonsterManger* monsterM, int puzzleNum, Player* player, vector<Area*>  neighbors)
+Area::Area(string name, Player* player, MonsterManager* monsterM)
+{
+	this->name = name;
+	locked = false;
+	pMonsterManager = monsterM;
+	pPlayer = player;
+}
+Area::Area(string name, Player* player, MonsterManager* monsterM, Puzzle* puzzle, int puzzleNum)
+{
+	this->name = name;
+	locked = true;
+	pPuzzle = puzzle;
+	pMonsterManager = monsterM;
+	puz = puzzleNum;
+	pPlayer = player;
+}
+void Area::SetupAreaNeighbors(vector<Area*>  neighborList)
+{
+	neighbors =neighborList;
+}
 bool Area::MonsterExist()
 {
-	//If(*pMonsterManager).Cleared())
-	return false;
-	//Else
-	//Return true;
+	if(pMonsterManager->Cleared())
+		return false;
+	else
+		return true;
 }
 bool Area::IsLocked()
 {
@@ -14,15 +32,17 @@ bool Area::IsLocked()
 }
 Area* Area::EnterArea()
 {
-	//If MonsterExist()
-	//Char result = ActivateBattleMode()
-	//If result == ‘l’
-	return this;
-	//End if
-	//If result == ‘r’
-	//Return pPrevious;
-	//End if
-	//Endif
+	
+	if (MonsterExist())
+	{
+		char result = ActivateBattleMode();
+		if (result == 'l')
+			return this;
+	
+		if (result == 'r')
+			return pPrevious;
+	}
+	cout << endl << name << endl;
 	int choice = 0;
 	bool correctValue = false;
 	do
@@ -45,7 +65,7 @@ Area* Area::MoveToNeighbor(int choice)
 {
 	if (neighbors[choice]->IsLocked())
 	{
-		if (ActivatePuzzleMode())
+		if (ActivatePuzzleMode(neighbors[choice]))
 			return neighbors[choice];
 		else
 			return this;
@@ -58,19 +78,19 @@ void Area::DisplayAreaChoices()
 	cout << "Where do you choose to go\n";
 	for (int i = 0; i < neighbors.size(); i++)
 	{
-		cout << "choice " << i<< ": " +  neighbors[i]->name;
+		cout << "choice " << i<< ": " +  neighbors[i]->name<<endl;
 	}
 }
 
 char Area::ActivateBattleMode()
 {
-	return 'p';
-	//char result = (*pMonsterManager).Battle()
-	//If(result == ‘w’)
+	char result = pMonsterManager->Battle(pPlayer);
+	return result;
+	//if(result == 'w')
 	////won
-	//Else if (result == ‘r’)
+	//else if (result == ‘r’)
 	////retreated
-	//Else if (result == ‘l’)
+	//if (result == ‘l’)
 	////lost
 	//Else
 	////error
@@ -79,14 +99,20 @@ char Area::ActivateBattleMode()
 	//Return result;
 }
 
-bool Area::ActivatePuzzleMode()
+bool Area::ActivatePuzzleMode(Area* neighbor)
 {
-	//If(*pPuzzle).PlayPuzzle(puz)
-	//locked = false;
-	return true;
-	//Else
-	//Return false;
-	//endif
+	if (neighbor->PlayPuzzle())
+	{
 
+		return true;
+	}
+	else
+		return false;
+}
+bool Area::PlayPuzzle()
+{
+	if( pPuzzle->PlayPuzzle(puz))
+		locked = false;
+	return !locked;
 }
 

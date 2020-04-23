@@ -1,22 +1,23 @@
 #pragma
-#include <string>
-#include "player.h"
- 
-namespace std
-{
+
+#include <iostream>
+using namespace std;
     class Monster
     {
-        string  name;
+    private:
+        string  name ="rob";
         int     health;
         int     attack;
-        bool    dead;
+      
  
-    public: void Attack(Player player) {};
- 
-    public: void TakeDamage(int amount) {};
- 
-    public: void Death() {};
+    public: 
+        bool dead = false;
+        Monster();
+        void SetupMonster(string name, int health, int attack);
+        void Intro();
+        int Attack();
+         void TakeDamage(int amount);
+         int RollForKit();
+         void Death();
  
     };
- 
-}

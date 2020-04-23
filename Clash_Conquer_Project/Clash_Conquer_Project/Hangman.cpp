@@ -1,6 +1,6 @@
 #include "Hangman.h"
-#include <array>
-bool Hangman::checkGuess(string word, char guess, bool matched[])
+
+bool Hangman::checkGuess(string word, char guess, bool matched[],int &right)
 {
 
     bool found = false;
@@ -12,11 +12,17 @@ bool Hangman::checkGuess(string word, char guess, bool matched[])
         if (word[i] == tolower(guess))
 
         {
-
-            matched[i] = true;
-
-            found = true;
-
+            if (matched[i])
+            {
+                cout << "You alrady guess that guess again" << endl;
+                return true;
+            }  
+            else
+            {
+                right++;
+                matched[i] = true;
+                found = true;
+            }
         }
 
     }
@@ -59,7 +65,7 @@ bool Hangman::PlayGame() {
    const int wordSize =14;
     bool matched[wordSize]{ false };
     char guess;
-    
+    int right = 0;
     //initialize matched array
 
     for (int i = 0; i < word.length(); i++)
@@ -68,11 +74,10 @@ bool Hangman::PlayGame() {
         }
     //Game loop
 
-    int gameStatus = 0
+    int gameStatus = 0;
     
     
     do
-
     {
 
         displayGameState(word, matched, guesses);
@@ -85,29 +90,24 @@ bool Hangman::PlayGame() {
 
         cout << endl << endl;
 
-        if (!checkGuess(word, guess, matched))
-
+        if (!checkGuess(word, guess, matched,right))
             guesses++;
-        if (GUESS_LIMIT == guess)
-        gameStatus = 2
-        bool flag = false;
-        for (int i = 0; i < matched.size(); i++)
-        {
-            if (matched[i]==false)
-            {
-                flag == true;
-                break;
-            }
-        }
-        if (!flag)
-        gameStatus = 1;
+        if (GUESS_LIMIT == guesses)
+            gameStatus = 2;
+        else if(right == wordSize)
+            gameStatus = 1;
 
     } while (gameStatus < 1);
         if (gameStatus == 2)
-        cout << "You lose." << endl;
+        {
+            cout << "You lose." << endl;
+            return false;
+        }
         else
-        cout << "You won." << endl;
-    return 0;
+        {
+            cout << "You won." << endl;
+            return true;
+        }
 
 }
 
