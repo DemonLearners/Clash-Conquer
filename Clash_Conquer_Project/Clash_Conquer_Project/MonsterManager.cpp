@@ -17,6 +17,7 @@ void MonsterManager::createMonsterList(int range)
 
 char MonsterManager::Battle(Player* pPlayer)
 {
+    system("pause");
     system("cls");
     while (!Cleared())
     {

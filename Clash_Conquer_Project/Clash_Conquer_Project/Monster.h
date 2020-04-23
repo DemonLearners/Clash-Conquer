@@ -6,8 +6,8 @@ using namespace std;
     {
     private:
         string  name ="rob";
-        int     health;
-        int     attack;
+        int     health =1;
+        int     attack=1;
       
  
     public: 

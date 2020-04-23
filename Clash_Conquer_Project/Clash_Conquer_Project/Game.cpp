@@ -27,7 +27,7 @@ int main()
 	Area* pCurrentArea = &areas[0];
 	Area* pPrevArea = &areas[0];
 	//Display intro story
-	cout << "welcome traveler blah blah blah\n";
+	cout << "welcome traveler, please save our town by destroy all the monster that infested are lands\n";
 	while (!won && player.Alive())
 	{
 		Area* pUncheckArea = 0;
@@ -56,14 +56,12 @@ int main()
 	}
 	if (won)
 		//Display message that the player won
-		cout << "player won\n";
+		cout << "Thank you so much traveler for saving our land from the monsters, but you can leave now\n";
 	else
 		//Display message that the player has lost
 		cout << " Game Over!\n";
 
-	char holdScreen;
-	cout << "Press any key and press enter to exit: ";
-	cin >> holdScreen;
+	system("pause");
     
 }
 

@@ -4,7 +4,7 @@ int Inventory::subtract_medkit()
 {
     medkit -= 1;
     cout << "Your current medkit has : " << medkit << endl;
-    return 25; //medkit health value that returns to the user
+    return 50; //medkit health value that returns to the user
 }
 
 void Inventory::add_medkit()

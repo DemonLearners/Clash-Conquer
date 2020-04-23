@@ -9,7 +9,7 @@ class Player
 public:
     int defense =0;
     bool dead = false;
-    int attack= 20;
+    int attack= 25;
     int health =100; 
     Inventory myInventor;
     int Health();
