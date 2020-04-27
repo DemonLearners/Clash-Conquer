@@ -54,6 +54,29 @@ int Monster:: RollForKit()
     return 0;
     
  }
+
+int random(int min, int max)
+//range : [min, max)
+{
+    static bool first = true;
+    if (first)
+    {
+        srand(time(NULL));
+        //seeding for the first time only!
+        first = false;
+    }
+    return min + rand() % ((max + 1) - min);
+}
+
+void Monster::DropCoins(Player player)
+{
+    int max = 5;
+    int min = 0;
+    int coins = random(min, max);
+    player.AddCoins(coins);
+    cout << coins;
+}
+
 void Monster::Death()
 {
     cout << "You have defeated the " << name << endl;
