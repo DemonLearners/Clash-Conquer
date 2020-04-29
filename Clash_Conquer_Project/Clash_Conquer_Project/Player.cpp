@@ -70,5 +70,28 @@ bool Player:: Alive()
     }
 }
 
+void ChangeEquipment(string itemName,int value,bool armor)
+{
+    if (armor=true)
+    {
+        int defense=10;
+        Inventory.setArmor(itemName);
+    }
+    else
+    {
+        return Weapon();
+    }
+}
 
 
+void PickUpCoins(int coinAmt)
+{
+    cout<<"You've picked up "<<coinAmt<<" coins!"<<endl;
+
+    //coinTracker.PickUpCoins(coinAmt,this)??
+}
+
+/*
+inventory
+
+*/
