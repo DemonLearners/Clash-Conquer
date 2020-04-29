@@ -2,6 +2,7 @@
 
 int Player::Health()
 {
+    cout << "Your current health is: " << health << endl;
     return health;
 }
 
@@ -35,13 +36,13 @@ void Player::TakeDamage(int damage)
     void Player::TakeMedKit()
     {
       
-       myInventor.add_medkit();
+       myInventory.add_medkit();
 
     }
     void  Player::UseMedKit()
     {
 
-        health += myInventor.subtract_medkit();
+        health += myInventory.subtract_medkit();
         if (health >100)
         {
             health=100;
@@ -52,8 +53,8 @@ void Player::TakeDamage(int damage)
     void Player::DisplayPlayerStats()
     {
         cout << "Your current health is: " << health << endl;
-        cout << "Your current weapon is: " << myInventor.Weapon() << endl;
-        cout << "Your current armor is: " << myInventor.Armor() << endl;
+        cout << "Your current weapon is: " << myInventory.Weapon() << endl;
+        cout << "Your current armor is: " << myInventory.Armor() << endl;
     }
 
 
@@ -74,7 +75,7 @@ void ChangeEquipment(string itemName,int value,bool armor)
     if (armor=true)
     {
         int defense=10;
-        Inventory.setArmor(itemName);
+        Inventory.SetArmor(itemName);
     }
     else
     {
@@ -83,9 +84,9 @@ void ChangeEquipment(string itemName,int value,bool armor)
 }
 
 
-void PickUpCoins(int coinAmt)
+void PickUpCoins(int coinAmountt)
 {
-    cout<<"You've picked up "<<coinAmt<<" coins!"<<endl;
+    cout<<"You've picked up "<<coinAmount<<" coins!"<<endl;
 
     //coinTracker.PickUpCoins(coinAmt,this)??
 }
