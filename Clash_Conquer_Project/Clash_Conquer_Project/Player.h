@@ -20,6 +20,8 @@ public:
     void DisplayPlayerStats();
     bool Alive();
     void UseMedKit();
-    ///saved
+    void ChangeEquipment(string itemName,int value, bool armor);
+    void PickUpCoins(int coinAmount);
+    CoinTrack coinTracker;
 };
 
