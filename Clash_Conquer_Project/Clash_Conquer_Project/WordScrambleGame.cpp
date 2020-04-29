@@ -18,10 +18,10 @@ bool WordScrambleGame::Play(){
         transform(input.begin(), input.end(), input.begin(), ::toupper);
         if(input==word[i])
         {
+            point += i + 1;
             cout<<"Correct"<<endl;
             cout<<"You have:"<<endl;
-            cout<<""<<i+1<<" "<<"Points"<<endl;
-            point += i+1;
+            cout<<""<<point<<" "<<"Points"<<endl;
         }
         else
         {
@@ -30,15 +30,16 @@ bool WordScrambleGame::Play(){
 
     }
     cout<<"Your Score is:"<<point<<endl;
-    if (point < 3) {
-        cout << "Congrats, you won";
+    if (point >= 3) {
+        cout << "Congrats, you won\n";
         return true;
     }
    
     else
     {
-        cout << "You lost";
+        cout << "You lost\n";
         return false;
     }
 
 }
+

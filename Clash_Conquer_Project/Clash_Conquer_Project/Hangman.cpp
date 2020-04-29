@@ -1,6 +1,6 @@
 #include "Hangman.h"
-#include <array>
-bool Hangman::checkGuess(string word, char guess, bool matched[])
+
+bool Hangman::checkGuess(string word, char guess, bool matched[],int &right)
 {
 
     bool found = false;
@@ -12,11 +12,17 @@ bool Hangman::checkGuess(string word, char guess, bool matched[])
         if (word[i] == tolower(guess))
 
         {
-
-            matched[i] = true;
-
-            found = true;
-
+            if (matched[i])
+            {
+                cout << "You alrady guess that guess again" << endl;
+                return true;
+            }  
+            else
+            {
+                right++;
+                matched[i] = true;
+                found = true;
+            }
         }
 
     }
@@ -51,7 +57,7 @@ void Hangman::displayGameState(string word, bool matched[], int guesses)
 
 }
 
-int Hangman::PlayGame() {
+bool Hangman::PlayGame() {
 
    int guesses = 0;
 
@@ -59,17 +65,19 @@ int Hangman::PlayGame() {
    const int wordSize =14;
     bool matched[wordSize]{ false };
     char guess;
-    
+    int right = 0;
     //initialize matched array
 
     for (int i = 0; i < word.length(); i++)
-
+        {
         matched[i] = false;
-
+        }
     //Game loop
 
+    int gameStatus = 0;
+    
+    
     do
-
     {
 
         displayGameState(word, matched, guesses);
@@ -82,15 +90,24 @@ int Hangman::PlayGame() {
 
         cout << endl << endl;
 
-        if (!checkGuess(word, guess, matched))
-
+        if (!checkGuess(word, guess, matched,right))
             guesses++;
+        if (GUESS_LIMIT == guesses)
+            gameStatus = 2;
+        else if(right == wordSize)
+            gameStatus = 1;
 
-    } while (guesses < GUESS_LIMIT);
-
-    cout << "You lose." << endl;
-
-    return 0;
+    } while (gameStatus < 1);
+        if (gameStatus == 2)
+        {
+            cout << "You lose." << endl;
+            return false;
+        }
+        else
+        {
+            cout << "You won." << endl;
+            return true;
+        }
 
 }
 

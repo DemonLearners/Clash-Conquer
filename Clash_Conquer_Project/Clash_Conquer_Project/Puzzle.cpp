@@ -1,11 +1,4 @@
-#include <iostream>
-#include <algorithm>
-#include "WordScrambleGame.h"
-#include "Hangman.h"
 #include "Puzzle.h"
-
-using namespace std;
-
 Puzzle::Puzzle()
 {
 
