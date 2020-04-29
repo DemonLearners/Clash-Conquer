@@ -58,7 +58,6 @@ int Monster:: RollForKit()
 int random(int min, int max)
 //range : [min, max)
 {
-    static bool first = true;
     if (first)
     {
         srand(time(NULL));
@@ -67,14 +66,12 @@ int random(int min, int max)
     }
     return min + rand() % ((max + 1) - min);
 }
-
-void Monster::DropCoins(Player player)
+int Monster::DropCoins()
 {
     int max = 5;
     int min = 0;
     int coins = random(min, max);
-    player.AddCoins(coins);
-    cout << coins;
+
 }
 
 void Monster::Death()
