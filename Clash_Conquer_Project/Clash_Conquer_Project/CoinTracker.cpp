@@ -1,2 +1,1 @@
 #include "CoinTracker.h"
-
