@@ -20,6 +20,9 @@ class Inventory
     string Weapon();
 
     string Armor();
+
+    void SetArmorName(string name);
+    void SetWeaponName(string name);
 };
 
 
