@@ -68,10 +68,10 @@ int random(int min, int max)
 }
 int Monster::DropCoins()
 {
-    int max = 5;
-    int min = 0;
-    int coins = random(min, max);
 
+    int coins = random(5, 25);
+    cout << name << " dropped " << coins << " coins\n";
+    return coins;
 }
 
 void Monster::Death()
