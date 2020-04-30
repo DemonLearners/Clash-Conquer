@@ -35,13 +35,13 @@ void Player::TakeDamage(int damage)
     void Player::TakeMedKit()
     {
       
-       myInventor.add_medkit();
+       myInventory.add_medkit();
 
     }
     void  Player::UseMedKit()
     {
 
-        health += myInventor.subtract_medkit();
+        health += myInventory.subtract_medkit();
         if (health >100)
         {
             health=100;
@@ -52,8 +52,8 @@ void Player::TakeDamage(int damage)
     void Player::DisplayPlayerStats()
     {
         cout << "Your current health is: " << health << endl;
-        cout << "Your current weapon is: " << myInventor.Weapon() << endl;
-        cout << "Your current armor is: " << myInventor.Armor() << endl;
+        cout << "Your current weapon is: " << myInventory.Weapon() << endl;
+        cout << "Your current armor is: " << myInventory.Armor() << endl;
     }
 
 
@@ -69,28 +69,26 @@ bool Player:: Alive()
     }
 }
 
-void ChangeEquipment(string itemName,int value,bool armor)
+void Player::ChangeEquipment(string itemName,int value,bool armor)//need to have className::Method for the method to work
 {
-    if (armor=true)
+    if (armor=true)//to make it simplier you can have it as just if(armor) is the same as if(armor == true)
     {
-        int defense=10;
-        Inventory.setArmor(itemName);
+        int defense=10;//need to be use the Player object varible defense not create a local variable defense and also make it
+        //defense = value; 
+        //need to set myInventory object armor name here
+        //Inventory.setArmor(itemName);
     }
     else
-    {
-        return Weapon();
+    { 
+        // increase the attack and change the weapons name
+        //return Weapon();
     }
 }
 
 
-void PickUpCoins(int coinAmt)
+void Player::PickUpCoins(int coinAmt)//need to have className::Method for the method to work
 {
     cout<<"You've picked up "<<coinAmt<<" coins!"<<endl;
 
-    //coinTracker.PickUpCoins(coinAmt,this)??
+    //coinTracker.PickupCoins(coinAmt, this); //yep that will work
 }
-
-/*
-inventory
-
-*/

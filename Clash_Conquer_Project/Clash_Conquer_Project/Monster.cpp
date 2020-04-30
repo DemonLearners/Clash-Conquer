@@ -55,12 +55,12 @@ int Monster:: RollForKit()
     
  }
 
-int random(int min, int max)
+int Monster::Random(int min, int max)//need to 
 //range : [min, max)
 {
     if (first)
     {
-        srand(time(NULL));
+        //srand(time(NULL));//still need to fix this issue you need to have a include time.h or something
         //seeding for the first time only!
         first = false;
     }
@@ -69,7 +69,7 @@ int random(int min, int max)
 int Monster::DropCoins()
 {
 
-    int coins = random(5, 25);
+    int coins = Random(5, 25);
     cout << name << " dropped " << coins << " coins\n";
     return coins;
 }

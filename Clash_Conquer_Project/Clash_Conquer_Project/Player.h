@@ -1,8 +1,8 @@
 #pragma once
 #include <iostream>
 #include "Inventory.h"
-
-
+#include "CoinTracker.h"
+//need to include the CoinTracker.h 
 using namespace std;
 class Player
 {
@@ -11,7 +11,7 @@ public:
     bool dead = false;
     int attack= 25;
     int health =100; 
-    Inventory myInventor;
+    Inventory myInventory;
     int Health();
     int Attack();
     void TakeDamage(int damage);
@@ -20,6 +20,9 @@ public:
     void DisplayPlayerStats();
     bool Alive();
     void UseMedKit();
-    ///saved
+    //re add the changes you made
+    void ChangeEquipment(string itemName, int value, bool armor);
+    void PickUpCoins(int coinAmount);
+    CoinTracker coinTracker;//need to have the include to be able to use this
 };
 

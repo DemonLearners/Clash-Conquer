@@ -31,8 +31,8 @@ char MonsterManager::Battle(Player* pPlayer)
         {
             int choice = 0;
             cout << "please enter 1 to attack";
-            if (pPlayer->myInventor.MedKitAmount() > 0)
-               cout << " or press 2 for medkits you have " << pPlayer->myInventor.MedKitAmount();
+            if (pPlayer->myInventory.MedKitAmount() > 0)
+               cout << " or press 2 for medkits you have " << pPlayer->myInventory.MedKitAmount();
             cout << endl;
             
             cin >> choice;
@@ -50,8 +50,8 @@ char MonsterManager::Battle(Player* pPlayer)
                     else//monster was defeated
                     {
                         defeated++;
+                        //pPlayer->PickUpCoins(m.DropCoins());// need to call the player PickupCoins method
                         // roll for a medkit
-                        PickUpCoins(m.DropCoins());
                         if (m.RollForKit() >0)
                         pPlayer->TakeMedKit();
                         monsterList.erase(monsterList.begin());
