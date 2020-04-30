@@ -1,5 +1,6 @@
 #pragma
 #include "Monster.h"
+#include <time.h>
 
 Monster::Monster()
 {
@@ -60,8 +61,7 @@ int Monster::Random(int min, int max)//need to
 {
     if (first)
     {
-        //srand(time(NULL));//still need to fix this issue you need to have a include time.h or something
-        //seeding for the first time only!
+        srand(time(NULL));
         first = false;
     }
     return min + rand() % ((max + 1) - min);
