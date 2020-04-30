@@ -27,3 +27,13 @@ int Inventory::MedKitAmount()
 {
     return medkit;
 }
+
+void Inventory::SetArmorName(string name)
+{
+    armor=name;
+}
+
+void Inventory::SetWeaponName(string name)
+{
+    weapon=name;
+}
