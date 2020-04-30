@@ -2,7 +2,7 @@
 #include <iostream>
 #include "Inventory.h"
 #include "CoinTracker.h"
-//need to include the CoinTracker.h 
+
 using namespace std;
 class Player
 {
@@ -20,9 +20,8 @@ public:
     void DisplayPlayerStats();
     bool Alive();
     void UseMedKit();
-    //re add the changes you made
     void ChangeEquipment(string itemName, int value, bool armor);
     void PickUpCoins(int coinAmount);
-    CoinTracker coinTracker;//need to have the include to be able to use this
+    CoinTracker coinTracker;
 };
 

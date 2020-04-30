@@ -1,4 +1,5 @@
 #include "Player.h"
+#include "Inventory.h"
 
 int Player::Health()
 {
@@ -69,26 +70,29 @@ bool Player:: Alive()
     }
 }
 
-void Player::ChangeEquipment(string itemName,int value,bool armor)//need to have className::Method for the method to work
+void Player::ChangeEquipment(string itemName,int value,bool armor)
 {
-    if (armor=true)//to make it simplier you can have it as just if(armor) is the same as if(armor == true)
+    if (armor)
     {
-        int defense=10;//need to be use the Player object varible defense not create a local variable defense and also make it
-        //defense = value; 
+        
+        defense = value; 
         //need to set myInventory object armor name here
-        //Inventory.setArmor(itemName);
+        myInventory.SetArmorName(itemName);
     }
     else
     { 
         // increase the attack and change the weapons name
-        //return Weapon();
+        //attack+=10;
+
+        attack=value;
+        myInventory.SetWeaponName(itemName);
     }
 }
 
 
-void Player::PickUpCoins(int coinAmt)//need to have className::Method for the method to work
+void Player::PickUpCoins(int coinAmt)
 {
     cout<<"You've picked up "<<coinAmt<<" coins!"<<endl;
 
-    //coinTracker.PickupCoins(coinAmt, this); //yep that will work
+    coinTracker.PickupCoins(coinAmt, this); 
 }
