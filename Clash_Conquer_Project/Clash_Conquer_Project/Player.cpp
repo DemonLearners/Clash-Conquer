@@ -73,17 +73,12 @@ bool Player:: Alive()
 void Player::ChangeEquipment(string itemName,int value,bool armor)
 {
     if (armor)
-    {
-        
+    {      
         defense = value; 
-        //need to set myInventory object armor name here
         myInventory.SetArmorName(itemName);
     }
     else
     { 
-        // increase the attack and change the weapons name
-        //attack+=10;
-
         attack=value;
         myInventory.SetWeaponName(itemName);
     }
