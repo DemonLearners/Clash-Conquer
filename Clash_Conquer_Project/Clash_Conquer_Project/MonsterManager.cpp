@@ -51,8 +51,8 @@ char MonsterManager::Battle(Player* pPlayer)
                     {
                         defeated++;
                         // roll for a medkit
-                        if (m.RollForKit() >0)
                         PickUpCoins(m.DropCoins());
+                        if (m.RollForKit() >0)
                         pPlayer->TakeMedKit();
                         monsterList.erase(monsterList.begin());
                     }
