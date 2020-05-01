@@ -50,7 +50,7 @@ char MonsterManager::Battle(Player* pPlayer)
                     else//monster was defeated
                     {
                         defeated++;
-                        Player.PickUpCoins(monster.dropCoins());
+                        pPlayer->PickUpCoins(m.DropCoins());//just made minor fixes
                         // roll for a medkit 
                         if (m.RollForKit() >0)
                         pPlayer->TakeMedKit();

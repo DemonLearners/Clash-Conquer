@@ -1,5 +1,4 @@
 #include "Player.h"
-#include "Inventory.h"
 
 int Player::Health()
 {
@@ -13,6 +12,9 @@ int Player::Attack()
 
 void Player::TakeDamage(int damage)
 {
+    damage -= defense;
+    if (damage < 0)
+        damage = 0;
     health -= damage;
     if ((health == 0) || (health < 0))
     {
@@ -87,7 +89,11 @@ void Player::ChangeEquipment(string itemName,int value,bool armor)
 
 void Player::PickUpCoins(int coinAmt)
 {
-    cout<<"You've picked up "<<coinAmt<<" coins!"<<endl;
+    string equipmentName ="";
+    int power = 0;
+    bool armor = false;
 
-    coinTracker.PickupCoins(coinAmt, this); 
+    coinTracker.PickupCoins(coinAmt, equipmentName,power,armor);
+    if (equipmentName != "")
+        ChangeEquipment(equipmentName, power, armor);
 }

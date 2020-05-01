@@ -1,4 +1,3 @@
-//INVENTORY CLASS
 
 #include<iostream>
 using namespace std;
@@ -23,6 +22,7 @@ class Inventory
 
     void SetArmorName(string name);
     void SetWeaponName(string name);
+
 };
 
 

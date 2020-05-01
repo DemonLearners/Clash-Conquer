@@ -12,6 +12,7 @@ public:
     int attack= 25;
     int health =100; 
     Inventory myInventory;
+    CoinTracker coinTracker;
     int Health();
     int Attack();
     void TakeDamage(int damage);
@@ -22,6 +23,6 @@ public:
     void UseMedKit();
     void ChangeEquipment(string itemName, int value, bool armor);
     void PickUpCoins(int coinAmount);
-    CoinTracker coinTracker;
+    
 };
 
